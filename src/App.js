@@ -1,8 +1,13 @@
 
 import './App.css';
+import About from './Components/About';
 import Navbar from './Components/Navbar';
 import Textform from './Components/Textform';
 import React, { useState } from 'react';
+import { 
+  BrowserRouter as Router,
+   Route,
+   Routes} from "react-router-dom";
 
 function App() {
   const [mode, setMode] = useState("light")
@@ -18,10 +23,19 @@ function App() {
   }
   return (
     <>
+    <Router>
     <Navbar title = "ScriptScrutinizer" menuFirst = "About Us" mode={mode} toggleMode={toggleMode} />
     <div className="container">
-    <Textform heading1 = "Email ID" heading2 = "Enter your Statement" mode={mode}/>
+      <Routes>
+        <Route exact path="/"
+         element = {<Textform heading1 = "Email ID" heading2 = "Enter your Statement" mode={mode}/>}>
+        </Route>
+        <Route exact path="/about"
+          element = {<About/>}>
+        </Route>
+        </Routes>
     </div>
+    </Router>
     </>
   ); 
 }
