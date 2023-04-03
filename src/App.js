@@ -31,7 +31,7 @@ function App() {
          element = {<Textform heading1 = "Email ID" heading2 = "Enter your Statement" mode={mode}/>}>
         </Route>
         <Route exact path="/about"
-          element = {<About/>}>
+          element = {<About mode={mode} />}>
         </Route>
         </Routes>
     </div>
